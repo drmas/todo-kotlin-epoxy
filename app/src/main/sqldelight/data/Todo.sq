@@ -1,0 +1,31 @@
+CREATE TABLE todos (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  text TEXT NOT NULL,
+  isDone INTEGER NOT NULL
+);
+
+
+INSERT INTO todos (id, text, isDone)
+VALUES (1, 'Create the database', 0);
+
+
+selectAll:
+SELECT *
+FROM todos;
+
+insert:
+INSERT INTO todos(text, isDone)
+VALUES (?, ?);
+
+update:
+UPDATE todos SET text=?, isDone=? WHERE id=?;
+
+selectAllByState:
+SELECT *
+FROM todos
+WHERE isDone = ?;
+
+clearDoneItems:
+DELETE
+FROM todos
+WHERE isDone = 1;
